@@ -106,14 +106,32 @@ export default (): JSX.Element => {
         14: "N",
         15: "O",
         16: "P",
+        17: "Q",
+        18: "R",
+        19: "S",
+        20: "T",
+        21: "U",
+        22: "V",
+        23: "W",
+        24: "X",
+        25: "Y",
+        26: "Z",
       };
-      const rangeString = "A1:" + alphabet[copyHeader.length] + "1";
+      const findRange = (num: any) => {
+        if (num <= 26) return alphabet[num];
+        // else {
+        //   const times = (num / 26) >> 0;
+        //   alphabet[times -1].concat) 
+        // }
+      };
+      // A, AA, BA, CA
+      const rangeString = "A1:" + findRange(copyHeader.length) + "1";
       let Table = sheet.tables.add(rangeString, true /*hasHeaders*/);
       Table.name = sheetName.value;
 
       console.log("this is our header array:", copyHeader);
 
-     Table.getHeaderRowRange().values = [copyHeader];
+      Table.getHeaderRowRange().values = [copyHeader];
 
       console.log("this is our data array:", copyData);
 
